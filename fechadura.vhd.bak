@@ -1,0 +1,32 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY fechadura IS
+    PORT (
+        clock, zero, um, dois, tres, quatro, cinco, seis, sete, oito, nove: IN STD_LOGIC;
+        led: OUT STD_LOGIC);
+END fechadura;
+
+ARCHITECTURE comportamento OF fechadura IS
+    TYPE STATE_TYPE IS (S0, S1);
+    SIGNAL estado : STATE_TYPE;
+
+BEGIN
+	PROCESS (botao, clock)
+	BEGIN
+		IF(rising_edge(clock)) THEN
+			CASE estado IS
+					WHEN S0 => IF botao = '1' THEN
+						estado <= S1;
+					END IF;
+					WHEN S1 => IF botao = '1' THEN
+						estado <= S0;
+					END IF;
+			END CASE;
+		END IF;
+	END PROCESS;
+
+	ledout <= '1' WHEN botao = '1' AND
+		 (estado = S0) ELSE '0' WHEN botao = '1' AND (estado = S1);
+		
+END comportamento;

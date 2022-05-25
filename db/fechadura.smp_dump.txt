@@ -1,0 +1,9 @@
+
+State Machine - |fechadura|estado
+Name estado.acerto estado.erro estado.d estado.c estado.b estado.a 
+estado.a 0 0 0 0 0 0 
+estado.b 0 0 0 0 1 1 
+estado.c 0 0 0 1 0 1 
+estado.d 0 0 1 0 0 1 
+estado.erro 0 1 0 0 0 1 
+estado.acerto 1 0 0 0 0 1 
