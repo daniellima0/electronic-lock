@@ -5,11 +5,12 @@ ENTITY fechadura IS
     PORT (
         clock : IN STD_LOGIC;
         switches : IN STD_LOGIC_VECTOR (9 DOWNTO 0);
-        led_acerto, led_erro : OUT STD_LOGIC);
+        led_acerto, led_erro: OUT STD_LOGIC;
+		  display7seg: OUT STD_LOGIC_VECTOR(0 TO 6));
 END fechadura;
 
 ARCHITECTURE comportamento OF fechadura IS
-    TYPE STATE_TYPE IS (a, b, c, d, erro, acerto);
+    TYPE STATE_TYPE IS (a, b, c, d);
     SIGNAL estado : STATE_TYPE;
 
 BEGIN
@@ -46,6 +47,19 @@ BEGIN
 
             END CASE;
 				
+				case digit_var is
+					 when 0 => display7seg <= "0000001"; -- "0"     
+					 when 1 => display7seg <= "1001111"; -- "1" 
+					 when 2 => display7seg <= "0010010"; -- "2" 
+					 when 3 => display7seg <= "0000110"; -- "3" 
+					 when 4 => display7seg <= "1001100"; -- "4" 
+					 when 5 => display7seg <= "0100100"; -- "5" 
+					 when 6 => display7seg <= "0100000"; -- "6" 
+					 when 7 => display7seg <= "0001111"; -- "7" 
+					 when 8 => display7seg <= "0000000"; -- "8"     
+					 when 9 => display7seg <= "0000100"; -- "9"
+				END CASE;
+				
 				led_erro <= '0';
 				led_acerto <= '0';
 						  
@@ -58,34 +72,32 @@ BEGIN
 						  IF (digit_var = digit_A) THEN
                         estado <= b;
                     ELSE
-                        estado <= erro;
+                        led_erro <= '1'; --lógica do for grande (delay) vai aqui
                     END IF;
 					 WHEN b =>
 						  IF (digit_var = digit_B) THEN
                         estado <= c;
                     ELSE
-                        estado <= erro;
+                        led_erro <= '1';
+								estado <= a;
                     END IF;
 					 when c =>
 							IF (digit_var = digit_C) THEN
 								estado <= d;
 							ELSE
-								estado <= erro;
+								led_erro <= '1';
+								estado <= a;
 							END IF;
 					 when d =>
 							IF (digit_var = digit_D) THEN
-								estado <= acerto;
+								led_acerto <= '1';
 							ELSE
-								estado <= erro;
+								led_erro <= '1';
 							END IF;
-					when acerto =>
-							led_acerto <= '1';
-							--estado <= a;
-					when erro =>
-							led_erro <= '1';
-							--estado <= a;
-					-- dar um delay nesses leds?
+							estado <= a;
 				END CASE;
 			END IF;
+			
+			-- considerar a porta no código
 		END PROCESS;
 END comportamento;

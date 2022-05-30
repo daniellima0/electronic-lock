@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fechadura
-Mon May 23 15:21:18 2022
+Mon May 30 14:07:56 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -44,14 +44,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 23 15:21:18 2022       ;
+; Analysis & Synthesis Status     ; Successful - Mon May 30 14:07:56 2022       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; fechadura                                   ;
 ; Top-level Entity Name           ; fechadura                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 12                                          ;
-; Total pins                      ; 13                                          ;
+; Total registers                 ; 17                                          ;
+; Total pins                      ; 20                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -168,13 +168,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                    ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                             ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
-; fechadura.vhd                    ; yes             ; User VHDL File  ; C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura/fechadura.vhd ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                               ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; fechadura.vhd                    ; yes             ; User VHDL File  ; C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------+
@@ -182,25 +182,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 21          ;
+; Estimate of Logic utilization (ALMs needed) ; 25          ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 30          ;
+; Combinational ALUT usage for logic          ; 38          ;
 ;     -- 7 input functions                    ; 0           ;
 ;     -- 6 input functions                    ; 11          ;
 ;     -- 5 input functions                    ; 4           ;
-;     -- 4 input functions                    ; 8           ;
-;     -- <=3 input functions                  ; 7           ;
+;     -- 4 input functions                    ; 13          ;
+;     -- <=3 input functions                  ; 10          ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 12          ;
+; Dedicated logic registers                   ; 17          ;
 ;                                             ;             ;
-; I/O pins                                    ; 13          ;
+; I/O pins                                    ; 20          ;
 ;                                             ;             ;
 ; Total DSP Blocks                            ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 12          ;
-; Total fan-out                               ; 173         ;
-; Average fan-out                             ; 2.54        ;
+; Maximum fan-out                             ; 17          ;
+; Total fan-out                               ; 227         ;
+; Average fan-out                             ; 2.39        ;
 +---------------------------------------------+-------------+
 
 
@@ -209,24 +209,22 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |fechadura                 ; 30 (30)             ; 12 (12)                   ; 0                 ; 0          ; 13   ; 0            ; |fechadura          ; fechadura   ; work         ;
+; |fechadura                 ; 38 (38)             ; 17 (17)                   ; 0                 ; 0          ; 20   ; 0            ; |fechadura          ; fechadura   ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------+
-; State Machine - |fechadura|estado                                                       ;
-+---------------+---------------+-------------+----------+----------+----------+----------+
-; Name          ; estado.acerto ; estado.erro ; estado.d ; estado.c ; estado.b ; estado.a ;
-+---------------+---------------+-------------+----------+----------+----------+----------+
-; estado.a      ; 0             ; 0           ; 0        ; 0        ; 0        ; 0        ;
-; estado.b      ; 0             ; 0           ; 0        ; 0        ; 1        ; 1        ;
-; estado.c      ; 0             ; 0           ; 0        ; 1        ; 0        ; 1        ;
-; estado.d      ; 0             ; 0           ; 1        ; 0        ; 0        ; 1        ;
-; estado.erro   ; 0             ; 1           ; 0        ; 0        ; 0        ; 1        ;
-; estado.acerto ; 1             ; 0           ; 0        ; 0        ; 0        ; 1        ;
-+---------------+---------------+-------------+----------+----------+----------+----------+
++------------------------------------------------------+
+; State Machine - |fechadura|estado                    ;
++----------+----------+----------+----------+----------+
+; Name     ; estado.d ; estado.c ; estado.b ; estado.a ;
++----------+----------+----------+----------+----------+
+; estado.a ; 0        ; 0        ; 0        ; 0        ;
+; estado.b ; 0        ; 0        ; 1        ; 1        ;
+; estado.c ; 0        ; 1        ; 0        ; 1        ;
+; estado.d ; 1        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+
 
 
 +------------------------------------------------------+
@@ -234,7 +232,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 12    ;
+; Total registers                              ; 17    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -249,19 +247,19 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 12                          ;
-;     plain             ; 12                          ;
-; arriav_lcell_comb     ; 30                          ;
-;     normal            ; 30                          ;
+; arriav_ff             ; 17                          ;
+;     plain             ; 17                          ;
+; arriav_lcell_comb     ; 38                          ;
+;     normal            ; 38                          ;
 ;         2 data inputs ; 4                           ;
-;         3 data inputs ; 3                           ;
-;         4 data inputs ; 8                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 13                          ;
 ;         5 data inputs ; 4                           ;
 ;         6 data inputs ; 11                          ;
-; boundary_port         ; 13                          ;
+; boundary_port         ; 20                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.96                        ;
+; Average LUT depth     ; 3.77                        ;
 +-----------------------+-----------------------------+
 
 
@@ -280,26 +278,26 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon May 23 15:20:52 2022
+    Info: Processing started: Mon May 30 14:07:41 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fechadura -c fechadura
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file fechadura.vhd
-    Info (12022): Found design unit 1: fechadura-comportamento File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura/fechadura.vhd Line: 11
-    Info (12023): Found entity 1: fechadura File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura/fechadura.vhd Line: 4
+    Info (12022): Found design unit 1: fechadura-comportamento File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 12
+    Info (12023): Found entity 1: fechadura File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 4
 Info (12127): Elaborating entity "fechadura" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at fechadura.vhd(22): object "ta_errado" assigned a value but never read File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura/fechadura.vhd Line: 22
+Warning (10036): Verilog HDL or VHDL warning at fechadura.vhd(23): object "ta_errado" assigned a value but never read File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 23
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 48 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 62 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 2 output pins
-    Info (21061): Implemented 35 logic cells
+    Info (21059): Implemented 9 output pins
+    Info (21061): Implemented 42 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4835 megabytes
-    Info: Processing ended: Mon May 23 15:21:18 2022
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:40
+    Info: Peak virtual memory: 4833 megabytes
+    Info: Processing ended: Mon May 30 14:07:57 2022
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:26
 
 

@@ -62,5 +62,25 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform4.vwf
+set_location_assignment PIN_L1 -to led_acerto
+set_location_assignment PIN_M6 -to clock
+set_location_assignment PIN_AA2 -to led_erro
+set_location_assignment PIN_U13 -to switches[9]
+set_location_assignment PIN_V13 -to switches[8]
+set_location_assignment PIN_T13 -to switches[7]
+set_location_assignment PIN_T12 -to switches[6]
+set_location_assignment PIN_AA15 -to switches[5]
+set_location_assignment PIN_AB15 -to switches[4]
+set_location_assignment PIN_AA14 -to switches[3]
+set_location_assignment PIN_AA13 -to switches[2]
+set_location_assignment PIN_AB13 -to switches[1]
+set_location_assignment PIN_AB12 -to switches[0]
+set_location_assignment PIN_AA22 -to display7seg[6]
+set_location_assignment PIN_Y21 -to display7seg[5]
+set_location_assignment PIN_Y22 -to display7seg[4]
+set_location_assignment PIN_W21 -to display7seg[3]
+set_location_assignment PIN_W22 -to display7seg[2]
+set_location_assignment PIN_V21 -to display7seg[1]
+set_location_assignment PIN_U21 -to display7seg[0]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

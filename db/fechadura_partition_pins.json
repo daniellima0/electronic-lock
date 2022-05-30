@@ -12,11 +12,31 @@
 					"strict" : false
 				},
 				{
-					"name" : "clock",
+					"name" : "display7seg[6]",
 					"strict" : false
 				},
 				{
-					"name" : "switches[2]",
+					"name" : "display7seg[5]",
+					"strict" : false
+				},
+				{
+					"name" : "display7seg[4]",
+					"strict" : false
+				},
+				{
+					"name" : "display7seg[3]",
+					"strict" : false
+				},
+				{
+					"name" : "display7seg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "display7seg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "display7seg[0]",
 					"strict" : false
 				},
 				{
@@ -25,6 +45,10 @@
 				},
 				{
 					"name" : "switches[4]",
+					"strict" : false
+				},
+				{
+					"name" : "switches[2]",
 					"strict" : false
 				},
 				{
@@ -53,6 +77,10 @@
 				},
 				{
 					"name" : "switches[9]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
 					"strict" : false
 				}
 			]
