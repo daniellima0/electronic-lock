@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "05/23/2022 14:45:54"
+-- Generated on "05/30/2022 15:35:31"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          fechadura
 -- 
@@ -35,14 +35,26 @@ ARCHITECTURE fechadura_arch OF fechadura_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clock : STD_LOGIC;
+SIGNAL display7seg1 : STD_LOGIC_VECTOR(0 TO 6);
+SIGNAL display7seg2 : STD_LOGIC_VECTOR(0 TO 6);
+SIGNAL display7seg3 : STD_LOGIC_VECTOR(0 TO 6);
+SIGNAL display7seg4 : STD_LOGIC_VECTOR(0 TO 6);
 SIGNAL led_acerto : STD_LOGIC;
-SIGNAL led_erro : STD_LOGIC;
+SIGNAL led_erro1 : STD_LOGIC;
+SIGNAL led_erro2 : STD_LOGIC;
+SIGNAL led_erro3 : STD_LOGIC;
 SIGNAL switches : STD_LOGIC_VECTOR(9 DOWNTO 0);
 COMPONENT fechadura
 	PORT (
 	clock : IN STD_LOGIC;
+	display7seg1 : OUT STD_LOGIC_VECTOR(0 TO 6);
+	display7seg2 : OUT STD_LOGIC_VECTOR(0 TO 6);
+	display7seg3 : OUT STD_LOGIC_VECTOR(0 TO 6);
+	display7seg4 : OUT STD_LOGIC_VECTOR(0 TO 6);
 	led_acerto : OUT STD_LOGIC;
-	led_erro : OUT STD_LOGIC;
+	led_erro1 : OUT STD_LOGIC;
+	led_erro2 : OUT STD_LOGIC;
+	led_erro3 : OUT STD_LOGIC;
 	switches : IN STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 END COMPONENT;
@@ -51,41 +63,34 @@ BEGIN
 	PORT MAP (
 -- list connections between master ports and signals
 	clock => clock,
+	display7seg1 => display7seg1,
+	display7seg2 => display7seg2,
+	display7seg3 => display7seg3,
+	display7seg4 => display7seg4,
 	led_acerto => led_acerto,
-	led_erro => led_erro,
+	led_erro1 => led_erro1,
+	led_erro2 => led_erro2,
+	led_erro3 => led_erro3,
 	switches => switches
 	);
 
 -- clock
 t_prcs_clock: PROCESS
 BEGIN
-	clock <= '0';
-	WAIT FOR 50000 ps;
-	clock <= '1';
-	WAIT FOR 20000 ps;
-	clock <= '0';
-	WAIT FOR 90000 ps;
-	clock <= '1';
-	WAIT FOR 20000 ps;
-	clock <= '0';
-	WAIT FOR 80000 ps;
-	clock <= '1';
-	WAIT FOR 20000 ps;
-	clock <= '0';
-	WAIT FOR 120000 ps;
-	clock <= '1';
-	WAIT FOR 20000 ps;
+	FOR i IN 1 TO 8
+	LOOP
+		clock <= '0';
+		WAIT FOR 60000 ps;
+		clock <= '1';
+		WAIT FOR 60000 ps;
+	END LOOP;
 	clock <= '0';
 WAIT;
 END PROCESS t_prcs_clock;
 -- switches[9]
 t_prcs_switches_9: PROCESS
 BEGIN
-	switches(9) <= '0';
-	WAIT FOR 380000 ps;
 	switches(9) <= '1';
-	WAIT FOR 50000 ps;
-	switches(9) <= '0';
 WAIT;
 END PROCESS t_prcs_switches_9;
 -- switches[8]
@@ -116,10 +121,6 @@ END PROCESS t_prcs_switches_5;
 t_prcs_switches_4: PROCESS
 BEGIN
 	switches(4) <= '0';
-	WAIT FOR 140000 ps;
-	switches(4) <= '1';
-	WAIT FOR 50000 ps;
-	switches(4) <= '0';
 WAIT;
 END PROCESS t_prcs_switches_4;
 -- switches[3]
@@ -143,14 +144,6 @@ END PROCESS t_prcs_switches_1;
 -- switches[0]
 t_prcs_switches_0: PROCESS
 BEGIN
-	switches(0) <= '0';
-	WAIT FOR 30000 ps;
-	switches(0) <= '1';
-	WAIT FOR 50000 ps;
-	switches(0) <= '0';
-	WAIT FOR 170000 ps;
-	switches(0) <= '1';
-	WAIT FOR 50000 ps;
 	switches(0) <= '0';
 WAIT;
 END PROCESS t_prcs_switches_0;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for fechadura
-Mon May 30 14:07:56 2022
+Wed Jun 08 17:20:52 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -14,10 +14,12 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |fechadura|estado
-  9. General Register Statistics
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -44,14 +46,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon May 30 14:07:56 2022       ;
+; Analysis & Synthesis Status     ; Successful - Wed Jun 08 17:20:52 2022       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; fechadura                                   ;
 ; Top-level Entity Name           ; fechadura                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 17                                          ;
-; Total pins                      ; 20                                          ;
+; Total registers                 ; 36                                          ;
+; Total pins                      ; 43                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -182,25 +184,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 25          ;
+; Estimate of Logic utilization (ALMs needed) ; 53          ;
 ;                                             ;             ;
-; Combinational ALUT usage for logic          ; 38          ;
+; Combinational ALUT usage for logic          ; 70          ;
 ;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 11          ;
-;     -- 5 input functions                    ; 4           ;
-;     -- 4 input functions                    ; 13          ;
+;     -- 6 input functions                    ; 33          ;
+;     -- 5 input functions                    ; 18          ;
+;     -- 4 input functions                    ; 9           ;
 ;     -- <=3 input functions                  ; 10          ;
 ;                                             ;             ;
-; Dedicated logic registers                   ; 17          ;
+; Dedicated logic registers                   ; 36          ;
 ;                                             ;             ;
-; I/O pins                                    ; 20          ;
+; I/O pins                                    ; 43          ;
 ;                                             ;             ;
 ; Total DSP Blocks                            ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 17          ;
-; Total fan-out                               ; 227         ;
-; Average fan-out                             ; 2.39        ;
+; Maximum fan-out                             ; 36          ;
+; Total fan-out                               ; 490         ;
+; Average fan-out                             ; 2.55        ;
 +---------------------------------------------+-------------+
 
 
@@ -209,7 +211,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |fechadura                 ; 38 (38)             ; 17 (17)                   ; 0                 ; 0          ; 20   ; 0            ; |fechadura          ; fechadura   ; work         ;
+; |fechadura                 ; 70 (70)             ; 36 (36)                   ; 0                 ; 0          ; 43   ; 0            ; |fechadura          ; fechadura   ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -227,19 +229,46 @@ Encoding Type:  One-Hot
 +----------+----------+----------+----------+----------+
 
 
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; display7seg4[5]~reg0                  ; Stuck at GND due to stuck port data_in ;
+; display7seg4[4]~reg0                  ; Stuck at GND due to stuck port data_in ;
+; display7seg4[3]~reg0                  ; Stuck at GND due to stuck port data_in ;
+; display7seg4[0]~reg0                  ; Stuck at GND due to stuck port data_in ;
+; display7seg3[6]~reg0                  ; Stuck at GND due to stuck port data_in ;
+; display7seg3[4]~reg0                  ; Stuck at GND due to stuck port data_in ;
+; display7seg2[6]~reg0                  ; Stuck at GND due to stuck port data_in ;
+; display7seg2[4]~reg0                  ; Stuck at GND due to stuck port data_in ;
+; acertou                               ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 9 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 17    ;
+; Total registers                              ; 36    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 2     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |fechadura|num_erros[3]    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-----------------------------------------------------+
@@ -247,19 +276,21 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 17                          ;
-;     plain             ; 17                          ;
-; arriav_lcell_comb     ; 38                          ;
-;     normal            ; 38                          ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 13                          ;
-;         5 data inputs ; 4                           ;
-;         6 data inputs ; 11                          ;
-; boundary_port         ; 20                          ;
+; arriav_ff             ; 36                          ;
+;     ENA               ; 2                           ;
+;     plain             ; 34                          ;
+; arriav_lcell_comb     ; 71                          ;
+;     normal            ; 71                          ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 18                          ;
+;         6 data inputs ; 33                          ;
+; boundary_port         ; 43                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.77                        ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 3.87                        ;
 +-----------------------+-----------------------------+
 
 
@@ -268,7 +299,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -278,26 +309,35 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon May 30 14:07:41 2022
+    Info: Processing started: Wed Jun 08 17:20:37 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fechadura -c fechadura
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file fechadura.vhd
-    Info (12022): Found design unit 1: fechadura-comportamento File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 12
+    Info (12022): Found design unit 1: fechadura-comportamento File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 15
     Info (12023): Found entity 1: fechadura File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 4
 Info (12127): Elaborating entity "fechadura" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at fechadura.vhd(23): object "ta_errado" assigned a value but never read File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 23
+Warning (10036): Verilog HDL or VHDL warning at fechadura.vhd(25): object "ta_errado" assigned a value but never read File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 25
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "display7seg2[6]" is stuck at GND File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 36
+    Warning (13410): Pin "display7seg2[4]" is stuck at GND File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 36
+    Warning (13410): Pin "display7seg3[6]" is stuck at GND File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 36
+    Warning (13410): Pin "display7seg3[4]" is stuck at GND File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 36
+    Warning (13410): Pin "display7seg4[5]" is stuck at GND File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 36
+    Warning (13410): Pin "display7seg4[4]" is stuck at GND File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 36
+    Warning (13410): Pin "display7seg4[3]" is stuck at GND File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 36
+    Warning (13410): Pin "display7seg4[0]" is stuck at GND File: C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd Line: 36
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 62 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 130 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 42 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4833 megabytes
-    Info: Processing ended: Mon May 30 14:07:57 2022
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:26
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 87 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4846 megabytes
+    Info: Processing ended: Wed Jun 08 17:20:52 2022
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:29
 
 
