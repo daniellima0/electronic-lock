@@ -67,9 +67,6 @@ BEGIN
             led_erro1 <= '0';
             led_acerto <= '0';
 
-            --Remover os estados intermediários e colocar as lógicas de LEDs dentro
-            -- dos if e else (pra não ocasionar nenhum delay de clock).
-
 				display7seg2 <= "0000000";
 				display7seg3 <= "0000000";
 				display7seg4 <= "0000000";
@@ -189,7 +186,5 @@ BEGIN
             END CASE;
 
         END IF;
-
-        -- considerar a porta no código
     END PROCESS;
 END comportamento;

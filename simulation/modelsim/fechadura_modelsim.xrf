@@ -1,7 +1,7 @@
 vendor_name = ModelSim
 source_file = 1, C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/fechadura.vhd
 source_file = 1, C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/Waveform.vwf
-source_file = 1, Waveform1.vwf
+source_file = 1, C:/Users/danli/OneDrive/Documentos/faculdade/dlp/fechadura-eletronica/Waveform1.vwf
 source_file = 1, Waveform2.vwf
 source_file = 1, Waveform3.vwf
 source_file = 1, Waveform4.vwf
