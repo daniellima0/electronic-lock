@@ -1,5 +1,5 @@
 Flow report for fechadura
-Mon Jun 20 22:29:13 2022
+Sat Jun 25 10:11:17 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Jun 20 22:29:13 2022       ;
+; Flow Status                     ; Successful - Sat Jun 25 10:11:17 2022       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; fechadura                                   ;
 ; Top-level Entity Name           ; fechadura                                   ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/20/2022 22:28:00 ;
+; Start date & time ; 06/25/2022 09:46:30 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fechadura           ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 268891677197165.165577488007164        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 268891677197165.165616119006576        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -101,12 +101,29 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4838 MB             ; 00:00:31                           ;
-; Fitter               ; 00:00:37     ; 1.0                     ; 5938 MB             ; 00:00:47                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4819 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:07     ; 1.0                     ; 5051 MB             ; 00:00:07                           ;
+; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4834 MB             ; 00:00:25                           ;
+; Fitter               ; 00:00:38     ; 1.0                     ; 5928 MB             ; 00:00:43                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 4820 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:08     ; 1.0                     ; 5054 MB             ; 00:00:06                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
-; Total                ; 00:01:07     ; --                      ; --                  ; 00:01:30                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4704 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:05     ; 1.0                     ; 4704 MB             ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4713 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4704 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4715 MB             ; 00:00:01                           ;
+; Total                ; 00:01:35     ; --                      ; --                  ; 00:01:38                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -120,6 +137,23 @@ https://fpgasoftware.intel.com/eula.
 ; Assembler            ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
 ; Timing Analyzer      ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
 ; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; DESKTOP-HH3DROQ  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -131,6 +165,23 @@ quartus_fit --read_settings_files=off --write_settings_files=off fechadura -c fe
 quartus_asm --read_settings_files=off --write_settings_files=off fechadura -c fechadura
 quartus_sta fechadura -c fechadura
 quartus_eda --read_settings_files=off --write_settings_files=off fechadura -c fechadura
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/danli/Documents/electronic-lock/simulation/qsim/ fechadura -c fechadura
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/danli/Documents/electronic-lock/simulation/qsim/ fechadura -c fechadura
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/danli/Documents/electronic-lock/simulation/qsim/ fechadura -c fechadura
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/danli/Documents/electronic-lock/simulation/qsim/ fechadura -c fechadura
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/danli/Documents/electronic-lock/simulation/qsim/ fechadura -c fechadura
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/danli/Documents/electronic-lock/simulation/qsim/ fechadura -c fechadura
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off fechadura -c fechadura --vector_source=C:/Users/danli/Documents/electronic-lock/Waveform1.vwf --testbench_file=C:/Users/danli/Documents/electronic-lock/simulation/qsim/Waveform1.vwf.vht
+quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/danli/Documents/electronic-lock/simulation/qsim/ fechadura -c fechadura
 
 
 

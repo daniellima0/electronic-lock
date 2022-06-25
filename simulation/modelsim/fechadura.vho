@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
 
--- DATE "06/20/2022 22:29:13"
+-- DATE "06/25/2022 09:47:45"
 
 -- 
 -- Device: Altera 5CEBA4F23C7 Package FBGA484
@@ -40,14 +40,14 @@ ENTITY 	fechadura IS
     PORT (
 	clock : IN std_logic;
 	switches : IN std_logic_vector(9 DOWNTO 0);
-	led_acerto : OUT std_logic;
-	led_erro1 : OUT std_logic;
-	led_erro2 : OUT std_logic;
-	led_erro3 : OUT std_logic;
-	display7seg1 : OUT std_logic_vector(0 TO 6);
-	display7seg2 : OUT std_logic_vector(0 TO 6);
-	display7seg3 : OUT std_logic_vector(0 TO 6);
-	display7seg4 : OUT std_logic_vector(0 TO 6)
+	led_acerto : BUFFER std_logic;
+	led_erro1 : BUFFER std_logic;
+	led_erro2 : BUFFER std_logic;
+	led_erro3 : BUFFER std_logic;
+	display7seg1 : BUFFER std_logic_vector(0 TO 6);
+	display7seg2 : BUFFER std_logic_vector(0 TO 6);
+	display7seg3 : BUFFER std_logic_vector(0 TO 6);
+	display7seg4 : BUFFER std_logic_vector(0 TO 6)
 	);
 END fechadura;
 
@@ -236,6 +236,24 @@ SIGNAL \display7seg4[2]~reg0_q\ : std_logic;
 SIGNAL \display7seg4[1]~reg0_q\ : std_logic;
 SIGNAL digit_var : std_logic_vector(3 DOWNTO 0);
 SIGNAL num_erros : std_logic_vector(3 DOWNTO 0);
+SIGNAL \ALT_INV_switches[8]~input_o\ : std_logic;
+SIGNAL \ALT_INV_switches[1]~input_o\ : std_logic;
+SIGNAL \ALT_INV_switches[0]~input_o\ : std_logic;
+SIGNAL \ALT_INV_switches[2]~input_o\ : std_logic;
+SIGNAL \ALT_INV_switches[4]~input_o\ : std_logic;
+SIGNAL \ALT_INV_switches[3]~input_o\ : std_logic;
+SIGNAL \ALT_INV_Equal10~0_combout\ : std_logic;
+SIGNAL \ALT_INV_Selector13~1_combout\ : std_logic;
+SIGNAL \ALT_INV_Selector13~0_combout\ : std_logic;
+SIGNAL \ALT_INV_Add0~1_combout\ : std_logic;
+SIGNAL \ALT_INV_Add0~0_combout\ : std_logic;
+SIGNAL \ALT_INV_num_erros[3]~2_combout\ : std_logic;
+SIGNAL \ALT_INV_num_erros[3]~1_combout\ : std_logic;
+SIGNAL \ALT_INV_num_erros[3]~0_combout\ : std_logic;
+SIGNAL \ALT_INV_Selector12~0_combout\ : std_logic;
+SIGNAL \ALT_INV_display7seg2~0_combout\ : std_logic;
+SIGNAL \ALT_INV_Selector22~3_combout\ : std_logic;
+SIGNAL \ALT_INV_Selector22~2_combout\ : std_logic;
 SIGNAL \ALT_INV_Selector22~1_combout\ : std_logic;
 SIGNAL \ALT_INV_Selector22~0_combout\ : std_logic;
 SIGNAL \ALT_INV_Equal13~1_combout\ : std_logic;
@@ -286,24 +304,6 @@ SIGNAL \ALT_INV_switches[9]~input_o\ : std_logic;
 SIGNAL \ALT_INV_switches[6]~input_o\ : std_logic;
 SIGNAL \ALT_INV_switches[7]~input_o\ : std_logic;
 SIGNAL \ALT_INV_switches[5]~input_o\ : std_logic;
-SIGNAL \ALT_INV_switches[8]~input_o\ : std_logic;
-SIGNAL \ALT_INV_switches[1]~input_o\ : std_logic;
-SIGNAL \ALT_INV_switches[0]~input_o\ : std_logic;
-SIGNAL \ALT_INV_switches[2]~input_o\ : std_logic;
-SIGNAL \ALT_INV_switches[4]~input_o\ : std_logic;
-SIGNAL \ALT_INV_switches[3]~input_o\ : std_logic;
-SIGNAL \ALT_INV_Equal10~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Selector13~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Selector13~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Add0~1_combout\ : std_logic;
-SIGNAL \ALT_INV_Add0~0_combout\ : std_logic;
-SIGNAL \ALT_INV_num_erros[3]~2_combout\ : std_logic;
-SIGNAL \ALT_INV_num_erros[3]~1_combout\ : std_logic;
-SIGNAL \ALT_INV_num_erros[3]~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Selector12~0_combout\ : std_logic;
-SIGNAL \ALT_INV_display7seg2~0_combout\ : std_logic;
-SIGNAL \ALT_INV_Selector22~3_combout\ : std_logic;
-SIGNAL \ALT_INV_Selector22~2_combout\ : std_logic;
 
 BEGIN
 
@@ -320,6 +320,24 @@ display7seg4 <= ww_display7seg4;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
+\ALT_INV_switches[8]~input_o\ <= NOT \switches[8]~input_o\;
+\ALT_INV_switches[1]~input_o\ <= NOT \switches[1]~input_o\;
+\ALT_INV_switches[0]~input_o\ <= NOT \switches[0]~input_o\;
+\ALT_INV_switches[2]~input_o\ <= NOT \switches[2]~input_o\;
+\ALT_INV_switches[4]~input_o\ <= NOT \switches[4]~input_o\;
+\ALT_INV_switches[3]~input_o\ <= NOT \switches[3]~input_o\;
+\ALT_INV_Equal10~0_combout\ <= NOT \Equal10~0_combout\;
+\ALT_INV_Selector13~1_combout\ <= NOT \Selector13~1_combout\;
+\ALT_INV_Selector13~0_combout\ <= NOT \Selector13~0_combout\;
+\ALT_INV_Add0~1_combout\ <= NOT \Add0~1_combout\;
+\ALT_INV_Add0~0_combout\ <= NOT \Add0~0_combout\;
+\ALT_INV_num_erros[3]~2_combout\ <= NOT \num_erros[3]~2_combout\;
+\ALT_INV_num_erros[3]~1_combout\ <= NOT \num_erros[3]~1_combout\;
+\ALT_INV_num_erros[3]~0_combout\ <= NOT \num_erros[3]~0_combout\;
+\ALT_INV_Selector12~0_combout\ <= NOT \Selector12~0_combout\;
+\ALT_INV_display7seg2~0_combout\ <= NOT \display7seg2~0_combout\;
+\ALT_INV_Selector22~3_combout\ <= NOT \Selector22~3_combout\;
+\ALT_INV_Selector22~2_combout\ <= NOT \Selector22~2_combout\;
 \ALT_INV_Selector22~1_combout\ <= NOT \Selector22~1_combout\;
 \ALT_INV_Selector22~0_combout\ <= NOT \Selector22~0_combout\;
 \ALT_INV_Equal13~1_combout\ <= NOT \Equal13~1_combout\;
@@ -376,24 +394,6 @@ ALT_INV_digit_var(0) <= NOT digit_var(0);
 \ALT_INV_switches[6]~input_o\ <= NOT \switches[6]~input_o\;
 \ALT_INV_switches[7]~input_o\ <= NOT \switches[7]~input_o\;
 \ALT_INV_switches[5]~input_o\ <= NOT \switches[5]~input_o\;
-\ALT_INV_switches[8]~input_o\ <= NOT \switches[8]~input_o\;
-\ALT_INV_switches[1]~input_o\ <= NOT \switches[1]~input_o\;
-\ALT_INV_switches[0]~input_o\ <= NOT \switches[0]~input_o\;
-\ALT_INV_switches[2]~input_o\ <= NOT \switches[2]~input_o\;
-\ALT_INV_switches[4]~input_o\ <= NOT \switches[4]~input_o\;
-\ALT_INV_switches[3]~input_o\ <= NOT \switches[3]~input_o\;
-\ALT_INV_Equal10~0_combout\ <= NOT \Equal10~0_combout\;
-\ALT_INV_Selector13~1_combout\ <= NOT \Selector13~1_combout\;
-\ALT_INV_Selector13~0_combout\ <= NOT \Selector13~0_combout\;
-\ALT_INV_Add0~1_combout\ <= NOT \Add0~1_combout\;
-\ALT_INV_Add0~0_combout\ <= NOT \Add0~0_combout\;
-\ALT_INV_num_erros[3]~2_combout\ <= NOT \num_erros[3]~2_combout\;
-\ALT_INV_num_erros[3]~1_combout\ <= NOT \num_erros[3]~1_combout\;
-\ALT_INV_num_erros[3]~0_combout\ <= NOT \num_erros[3]~0_combout\;
-\ALT_INV_Selector12~0_combout\ <= NOT \Selector12~0_combout\;
-\ALT_INV_display7seg2~0_combout\ <= NOT \display7seg2~0_combout\;
-\ALT_INV_Selector22~3_combout\ <= NOT \Selector22~3_combout\;
-\ALT_INV_Selector22~2_combout\ <= NOT \Selector22~2_combout\;
 
 -- Location: IOOBUF_X0_Y20_N56
 \led_acerto~output\ : cyclonev_io_obuf

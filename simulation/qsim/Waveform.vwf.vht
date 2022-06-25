@@ -19,7 +19,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "05/30/2022 15:35:31"
+-- Generated on "06/25/2022 10:09:26"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          fechadura
 -- 
@@ -47,14 +47,14 @@ SIGNAL switches : STD_LOGIC_VECTOR(9 DOWNTO 0);
 COMPONENT fechadura
 	PORT (
 	clock : IN STD_LOGIC;
-	display7seg1 : OUT STD_LOGIC_VECTOR(0 TO 6);
-	display7seg2 : OUT STD_LOGIC_VECTOR(0 TO 6);
-	display7seg3 : OUT STD_LOGIC_VECTOR(0 TO 6);
-	display7seg4 : OUT STD_LOGIC_VECTOR(0 TO 6);
-	led_acerto : OUT STD_LOGIC;
-	led_erro1 : OUT STD_LOGIC;
-	led_erro2 : OUT STD_LOGIC;
-	led_erro3 : OUT STD_LOGIC;
+	display7seg1 : BUFFER STD_LOGIC_VECTOR(0 TO 6);
+	display7seg2 : BUFFER STD_LOGIC_VECTOR(0 TO 6);
+	display7seg3 : BUFFER STD_LOGIC_VECTOR(0 TO 6);
+	display7seg4 : BUFFER STD_LOGIC_VECTOR(0 TO 6);
+	led_acerto : BUFFER STD_LOGIC;
+	led_erro1 : BUFFER STD_LOGIC;
+	led_erro2 : BUFFER STD_LOGIC;
+	led_erro3 : BUFFER STD_LOGIC;
 	switches : IN STD_LOGIC_VECTOR(9 DOWNTO 0)
 	);
 END COMPONENT;
@@ -77,12 +77,12 @@ BEGIN
 -- clock
 t_prcs_clock: PROCESS
 BEGIN
-	FOR i IN 1 TO 8
+	FOR i IN 1 TO 6
 	LOOP
 		clock <= '0';
-		WAIT FOR 60000 ps;
+		WAIT FOR 80000 ps;
 		clock <= '1';
-		WAIT FOR 60000 ps;
+		WAIT FOR 80000 ps;
 	END LOOP;
 	clock <= '0';
 WAIT;
@@ -90,7 +90,7 @@ END PROCESS t_prcs_clock;
 -- switches[9]
 t_prcs_switches_9: PROCESS
 BEGIN
-	switches(9) <= '1';
+	switches(9) <= '0';
 WAIT;
 END PROCESS t_prcs_switches_9;
 -- switches[8]
@@ -127,11 +127,19 @@ END PROCESS t_prcs_switches_4;
 t_prcs_switches_3: PROCESS
 BEGIN
 	switches(3) <= '0';
+	WAIT FOR 540000 ps;
+	switches(3) <= '1';
+	WAIT FOR 50000 ps;
+	switches(3) <= '0';
 WAIT;
 END PROCESS t_prcs_switches_3;
 -- switches[2]
 t_prcs_switches_2: PROCESS
 BEGIN
+	switches(2) <= '0';
+	WAIT FOR 360000 ps;
+	switches(2) <= '1';
+	WAIT FOR 70000 ps;
 	switches(2) <= '0';
 WAIT;
 END PROCESS t_prcs_switches_2;
@@ -139,11 +147,19 @@ END PROCESS t_prcs_switches_2;
 t_prcs_switches_1: PROCESS
 BEGIN
 	switches(1) <= '0';
+	WAIT FOR 220000 ps;
+	switches(1) <= '1';
+	WAIT FOR 80000 ps;
+	switches(1) <= '0';
 WAIT;
 END PROCESS t_prcs_switches_1;
 -- switches[0]
 t_prcs_switches_0: PROCESS
 BEGIN
+	switches(0) <= '0';
+	WAIT FOR 70000 ps;
+	switches(0) <= '1';
+	WAIT FOR 70000 ps;
 	switches(0) <= '0';
 WAIT;
 END PROCESS t_prcs_switches_0;
